@@ -23,4 +23,6 @@ sed -i \
   's|https://github.com/bkidwell/instant-wordpress-dev/blob/master/docs/instant-wordpress-dev.asciidoc|docs/instant-wordpress-dev.html|g' \
   README.html
 
+asciidoc --attribute=icons --backend=html5 LICENSE.asciidoc
+
 cd "$cd_"

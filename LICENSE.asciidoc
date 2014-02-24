@@ -1,0 +1,13 @@
+License
+=======
+
+Instant WordPress Dev © 2014 Brendan Kidwell.
+
+This software is licensed under the GNU General Public License, version 3. See link:gpl3.txt[gpl3.txt] in the root folder of the source code.
+
+Instant WordPress Dev includes in its source code and distribution Zip files the following additional free and open source software:
+
+* https://github.com/bcosca/fatfree[Fat-Free Framework] for PHP -- © 2009-2013 F3::Factory/Bong Cosca <bong.cosca@yahoo.com>; GPL 3
+* http://getbootstrap.com/[Bootstreap] HTML front-end framework -- © 2011-2014 Twitter, Inc; MIT License
+* http://www.adminer.org/[Adminer] database browser/editor --  © 2007 http://www.vrana.cz/[Jakub Vrana]; Apache License 2.0 or GPL 2
+

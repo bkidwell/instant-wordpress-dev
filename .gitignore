@@ -9,5 +9,7 @@
 !/_system/
 !docs/
 !README.*
+!LICENSE.*
+!gpl3.txt
 _system/admin/tmp/
 
