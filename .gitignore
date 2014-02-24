@@ -8,5 +8,6 @@
 !/run-wpdev.sh
 !/_system/
 !docs/
+!README.*
 _system/admin/tmp/
 

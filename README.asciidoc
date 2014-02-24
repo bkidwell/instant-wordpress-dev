@@ -1,0 +1,39 @@
+Instant WordPress Dev
+=====================
+Brendan Kidwell
+v1.0, 24 Feb 2014
+
+Instant WordPress Dev is WordPress development environment designed to be easy and fast to install. It provides a control panel in which you can create and destroy WordPress instances with just a few clicks.
+
+With Instant WordPress Dev, you can:
+
+* Experiment with WordPress and decide if it is the right choice for a project, even if you are unfamiliar with how to setup web servers, database, and WordPress itself.
+* Quickly create disposable sandbox WordPress instances, to try out new ideas in a fresh environment.
+* Develop WordPress Themes and Plugins.
+* Run a WordPress-related presentation or a presentation built in WordPress, without having to rely on an Internet connection.
+
+== Features
+
+* Create and destroy WordPress instances on the fly.
+* Development WordPress instances automatically have users created for each standard WordPress role: admin, editor, author, contributor, subscriber.
+* Passwordless login for those users, so you can easily test theme/plugin features that depend on them.
+* Browse/hack your WordPress databases using http://www.adminer.org/[Adminer] (included).
+* Mail sent by WordPress is collected in a screen on the control panel.
+
+== Requirements
+
+* PHP command line interpreter (which comes with its own light development web server)
+* PHP MySQL PDO library
+* PHP GD library (for manipulating images)
+* MySQL Server (or MariaDB or Drizzle)
+
+*Not* required:
+
+* Any web server other than what comes with PHP
+* A WordPress installer; this is downloaded automatically when you first run Instant WordPress Dev
+* A mail server
+
+== More Information
+
+See the https://github.com/bkidwell/instant-wordpress-dev/blob/master/docs/instant-wordpress-dev.asciidoc[Instant WordPress Dev Documentation].
+
