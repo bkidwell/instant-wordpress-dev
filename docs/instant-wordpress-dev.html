@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.7">
+<title>Instant WordPress Dev Documentation</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+tt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+.monospaced {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Instant WordPress Dev Documentation</h1>
+<span id="author">Brendan Kidwell</span><br>
+<span id="revnumber">version 1.0,</span>
+<span id="revdate">24 Feb 2014</span>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>Instant WordPress Dev is WordPress development environment designed to be easy and fast to install. It provides a control panel in which you can create and destroy WordPress instances with just a few clicks.</p></div>
+<div class="paragraph"><p>With Instant WordPress Dev, you can:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Experiment with WordPress and decide if it is the right choice for a project, even if you are unfamiliar with how to setup web servers, database, and WordPress itself.
+</p>
+</li>
+<li>
+<p>
+Quickly create disposable sandbox WordPress instances, to try out new ideas in a fresh environment.
+</p>
+</li>
+<li>
+<p>
+Develop WordPress Themes and Plugins.
+</p>
+</li>
+<li>
+<p>
+Run a WordPress-related presentation or a presentation built in WordPress, without having to rely on an Internet connection.
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/warning.png" alt="Warning">
+</td>
+<td class="content">
+<div class="paragraph"><p>Be careful where and why you use Instant WordPress Dev. Instant WordPress Dev is meant to be run on a <strong>private</strong> computer used only my one person. It goes out of its way to get rid of passwords, and anyone who can access the PHP web server it creates can do anything in any of your WordPress projects without any restrictions!</p></div>
+<div class="paragraph"><p><strong>Do not use Instant WordPress Dev on an Internet-accessible server unless you are sure you know what you&#8217;re doing.</strong></p></div>
+</td>
+</tr></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_features">Features</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Create and destroy WordPress instances on the fly.
+</p>
+</li>
+<li>
+<p>
+Development WordPress instances automatically have users created for each standard WordPress role: admin, editor, author, contributor, subscriber.
+</p>
+</li>
+<li>
+<p>
+Passwordless login for those users, so you can easily test theme/plugin features that depend on them.
+</p>
+</li>
+<li>
+<p>
+Browse/hack your WordPress databases using <a href="http://www.adminer.org/">Adminer</a> (included).
+</p>
+</li>
+<li>
+<p>
+Mail sent by WordPress is collected in a screen on the control panel.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_requirements">Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Instant WordPress Dev was built and tested on Linux Mint (which is derived from Ubuntu), but it should work on any Linux or Unix system, including OS X. It should also be possible to run Instant WordPress Dev from inside a <a href="http://cygwin.com/">Cygwin</a> environment in Windows. (A future version of this manual may include specific instructions for this.)</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+PHP command line interpreter (which comes with its own light development web server)
+</p>
+</li>
+<li>
+<p>
+PHP MySQL PDO library
+</p>
+</li>
+<li>
+<p>
+PHP GD library (for manipulating images)
+</p>
+</li>
+<li>
+<p>
+MySQL Server (or MariaDB or Drizzle)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Not</strong> required:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Any web server other than what comes with PHP
+</p>
+</li>
+<li>
+<p>
+A WordPress installer; this is downloaded automatically when you first run Instant WordPress Dev
+</p>
+</li>
+<li>
+<p>
+A mail server
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation">Installation</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>These instructions assume you are using a Debian-based operating system (Debian, Ubuntu, Linux Mint, etc.) If you are using another OS, the exact commands maybe different.</p></div>
+<div class="paragraph"><p>Use your desktop&#8217;s <em>Terminal</em> application to follow this procedure.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+If you don&#8217;t already have Git installed, install it with
+</p>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>sudo apt-get install git</tt></pre></div></div>
+</li>
+<li>
+<p>
+Make sure you have the requirements listed above installed.
+</p>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>sudo apt-get install php5-cli php5-mysql php5-gd mysql-server</tt></pre></div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">When you install <span class="monospaced">mysql-server</span> your OS will configure MySQL as a system-wide service, and you may be prompted to setup a password for the <span class="monospaced">root</span> MySQL user for that service. If you are using your own desktop computer, just set it to the same as your login password, and remember that&#8217;s what you set it to. Instant WordPress Dev will actually be using its own non-system MySQL instance.</td>
+</tr></table>
+</div>
+</li>
+<li>
+<p>
+Download the application.
+</p>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>mkdir <span style="color: #990000">~</span>/Apps
+cd <span style="color: #990000">~</span>/Apps
+git clone https<span style="color: #990000">:</span>//github<span style="color: #990000">.</span>com/bkidwell/instant-wordpress-dev<span style="color: #990000">.</span>git</tt></pre></div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">Or, if you&#8217;ve already downloaded a Zip file from GitHub, just extract it to <span class="monospaced">~/Apps/instant-wordpress-dev</span>.</td>
+</tr></table>
+</div>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_instant_wordpress_dev">Using Instant WordPress Dev</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>To launch Instant WordPress Dev, you can use your file manager to navigate to the folder where you installed it, and double-click <span class="monospaced">run-wpdev.sh</span>, and then select &#8220;Run in Terminal&#8221;.</p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="iwp-launcher.png">
+<img src="images/iwp-launcher.png" alt="Screenshot of Instant WordPress Dev folder in a file manager" width="604.5">
+</a>
+</div>
+</div>
+<div class="paragraph"><p>Or you can run it from inside <strong>Terminal</strong>.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>cd <span style="color: #990000">~</span>/Apps/instant-wordpress-dev
+<span style="color: #990000">.</span>/run-wpdev<span style="color: #990000">.</span>sh</tt></pre></div></div>
+<div class="paragraph"><p>The launcher script will do the following things:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Check for its dependencies.
+</p>
+</li>
+<li>
+<p>
+Download the WordPress installer if this is your first time using Instant WordPress or if there is an updated installer.
+</p>
+</li>
+<li>
+<p>
+Create a local data directory for MySQL Server. (You will be using your own MySQL data files and a custom TCP port; you won&#8217;t be using the global MySQL instance on port 3306.)
+</p>
+</li>
+<li>
+<p>
+Create PHP and MySQL server processes.
+</p>
+</li>
+<li>
+<p>
+Dispaly the URL for Instant WordPress Dev&#8217;s control panel at <a href="http://localhost:8300/">http://localhost:8300/</a> .
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/running-iwp.png">
+<img src="images/running-iwp.png" alt="Screenshot of run-wpdev.sh running in Terminal" width="498">
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_control_panel">Control Panel</h2>
+<div class="sectionbody">
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">Don&#8217;t forget, you can access the control panel at <a href="http://localhost:8300/">http://localhost:8300/</a> in your browser.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>If you have never run Instant WordPress Dev before, the control panel will create an empty WordPress instance called <span class="monospaced">sandbox</span> for you.</p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/iwp-home.png">
+<img src="images/iwp-home.png" alt="Screenshot of first view of Instant WordPress Dev control panel" width="768">
+</a>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wordpress_instances_screen">WordPress Instances Screen</h3>
+<div class="paragraph"><p>Use the WordPress Instances screen to create and destroy instances, and to login to them.</p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/instances.png">
+<img src="images/instances.png" alt="Screenshot of WordPress Instances screen" width="768">
+</a>
+</div>
+</div>
+<div class="paragraph"><p>The <strong>Create new instance</strong> button creates a new site for you. It automatically creates a user for each of the standard roles in WordPress, so you can easily test how your site behaves with those roles.</p></div>
+<div class="paragraph"><p>By default, when you click the <strong>Login</strong> button for an instance, you will go to the site&#8217;s home page and you will be logged in as <span class="monospaced">admin</span>. You will not be prompted for a password. Use the &#8220;Login as&#8221; and &#8220;go to&#8221; buttons to change the role or target screen.</p></div>
+<div class="paragraph"><p>The <strong>Delete</strong> button destroys a site. It will prompt you to ask if you&#8217;re sure.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/warning.png" alt="Warning">
+</td>
+<td class="content">The <strong>Delete</strong> function will destroy any work that exists inside that site. This includes all pages and posts, as well as any themes and plugins you were working on.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_databases_screen">Databases Screen</h3>
+<div class="paragraph"><p>Use the Databases screen to peek inside your WordPress databases.</p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/databases.png">
+<img src="images/databases.png" alt="Screenshot of Databases screen" width="768">
+</a>
+</div>
+</div>
+<div class="paragraph"><p>The <span class="monospaced">wpdev</span> database is used by Instant WordPress Dev to track mail sent by WordPress. The rest of the databases belong to WordPress instances.</p></div>
+<div class="paragraph"><p>Click on a database name to access that database using <a href="http://www.adminer.org/">Adminer</a> (which is included in Instant WordPress Dev).</p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/adminer.png">
+<img src="images/adminer.png" alt="Screenshot of Databases screen" width="768">
+</a>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mail_screen">Mail Screen</h3>
+<div class="paragraph"><p>Use the Mail screen to read and delete any mail that was sent by an action you performed in WordPress. An example of a common built-in use of mail in WordPress is when you create a new user.</p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/mail.png">
+<img src="images/mail.png" alt="Screenshot of Mail screen" width="768">
+</a>
+</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">For convenience, the <strong>Delete All</strong> button does not ask for confirmation. If you need to save any messages, be sure to immediately copy and paste to somewhere more permanent.</td>
+</tr></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0<br>
+Last updated 2014-02-24 03:43:07 EST
+</div>
+</div>
+</body>
+</html>

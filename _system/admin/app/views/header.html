@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Instant WordPress Dev{{ @short_title ? ": @short_title" : '' }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="{{ @root_uri }}/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="{{ @root_uri }}/css/bootstrap-theme.css" rel="stylesheet" media="screen">
+    <script src="{{ @root_uri }}/js/jquery.min.js"></script>
+    <script src="{{ @root_uri }}/js/bootstrap.js"></script>
+    {{ @head_extra | raw }}
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-items">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ @root_uri }}/instances">
+            Instant WordPress Dev
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="menu-items">
+          <ul class="nav navbar-nav">
+            {{ @menu | raw }}
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>

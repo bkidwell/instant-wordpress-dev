@@ -1,0 +1,8 @@
+WEB_PORT=8300         # port for PHP web server
+MYSQL_PORT=8301       # port for MySQL
+MAX_UPLOAD=2000M      # maximum file upload size
+DB_PASSWORD=FIXME     # password for MySQL and wp-admin
+DB_VERSION=FIXME      # database migration version
+WP_VERSION=FIXME      # current version of WordPress
+TIMEZONE=FIXME        # system timezone
+FIRST_RUN=1           # this is the first run (need to create 'sandbox' instance)

@@ -1,0 +1,48 @@
+<include href="header.html" />
+<div class="container">
+
+  <h1>Creating WordPress Instance...</h1>
+
+  <p>Database created. Installing WordPress<span id="dots">.</span></p>
+
+  <div id="result" style="display:none;">
+    <h2>Error</h2>
+    <div id="result_body"></div>
+  </div>
+
+  <form method="post" action="{{ @root_uri }}/instances" id="form_done">
+      <input type="hidden" name="instance" value="{{ @instance_name }}" />
+      <input type="hidden" name="do" value="created" />
+  </form>
+
+  <script type="text/javascript">
+  $(function() {
+    var dots = '.';
+    var dots_span = $('#dots');
+    window.setInterval(function() {
+      dots_span.text(dots);
+      dots += '.';
+      if(dots == '......') { dots = '.'; }
+    }, 200);
+
+    var result = $.post("{{ @install_url }}", {
+      weblog_title: '{{ @instance_name }}',
+      user_name: 'admin',
+      admin_password: '{{ @admin_password }}',
+      admin_password2: '{{ @admin_password }}',
+      admin_email: 'admin@example.com',
+      blog_public: '1',
+      Submit: 'Install WordPress'
+    })
+    .done(function() {
+      $("#form_done").submit();
+    })
+    .fail(function(html) {
+      $("#result_body").html(html);
+      $("#result").show();
+    });
+  });
+  </script>
+
+</div>
+<include href="footer.html" />

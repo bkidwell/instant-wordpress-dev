@@ -1,0 +1,139 @@
+Instant WordPress Dev Documentation
+===================================
+Brendan Kidwell
+v1.0, 24 Feb 2014
+
+Instant WordPress Dev is WordPress development environment designed to be easy and fast to install. It provides a control panel in which you can create and destroy WordPress instances with just a few clicks.
+
+With Instant WordPress Dev, you can:
+
+* Experiment with WordPress and decide if it is the right choice for a project, even if you are unfamiliar with how to setup web servers, database, and WordPress itself.
+* Quickly create disposable sandbox WordPress instances, to try out new ideas in a fresh environment.
+* Develop WordPress Themes and Plugins.
+* Run a WordPress-related presentation or a presentation built in WordPress, without having to rely on an Internet connection.
+
+[WARNING]
+====
+Be careful where and why you use Instant WordPress Dev. Instant WordPress Dev is meant to be run on a *private* computer used only my one person. It goes out of its way to get rid of passwords, and anyone who can access the PHP web server it creates can do anything in any of your WordPress projects without any restrictions!
+
+*Do not use Instant WordPress Dev on an Internet-accessible server unless you are sure you know what you're doing.*
+====
+
+== Features
+
+* Create and destroy WordPress instances on the fly.
+* Development WordPress instances automatically have users created for each standard WordPress role: admin, editor, author, contributor, subscriber.
+* Passwordless login for those users, so you can easily test theme/plugin features that depend on them.
+* Browse/hack your WordPress databases using http://www.adminer.org/[Adminer] (included).
+* Mail sent by WordPress is collected in a screen on the control panel.
+
+== Requirements
+
+Instant WordPress Dev was built and tested on Linux Mint (which is derived from Ubuntu), but it should work on any Linux or Unix system, including OS X. It should also be possible to run Instant WordPress Dev from inside a http://cygwin.com/[Cygwin] environment in Windows. (A future version of this manual may include specific instructions for this.)
+
+* PHP command line interpreter (which comes with its own light development web server)
+* PHP MySQL PDO library
+* PHP GD library (for manipulating images)
+* MySQL Server (or MariaDB or Drizzle)
+
+*Not* required:
+
+* Any web server other than what comes with PHP
+* A WordPress installer; this is downloaded automatically when you first run Instant WordPress Dev
+* A mail server
+
+== Installation
+
+These instructions assume you are using a Debian-based operating system (Debian, Ubuntu, Linux Mint, etc.) If you are using another OS, the exact commands maybe different.
+
+Use your desktop's _Terminal_ application to follow this procedure.
+
+1. If you don't already have Git installed, install it with
++
+[source,bash]
+sudo apt-get install git
+
+2. Make sure you have the requirements listed above installed.
++
+[source,bash]
+sudo apt-get install php5-cli php5-mysql php5-gd mysql-server
++
+NOTE: When you install +mysql-server+ your OS will configure MySQL as a system-wide service, and you may be prompted to setup a password for the +root+ MySQL user for that service. If you are using your own desktop computer, just set it to the same as your login password, and remember that's what you set it to. Instant WordPress Dev will actually be using its own non-system MySQL instance.
+
+3. Download the application.
++
+[source,bash]
+----
+mkdir ~/Apps
+cd ~/Apps
+git clone https://github.com/bkidwell/instant-wordpress-dev.git
+----
++
+TIP: Or, if you've already downloaded a Zip file from GitHub, just extract it to +~/Apps/instant-wordpress-dev+.
+
+== Using Instant WordPress Dev
+
+To launch Instant WordPress Dev, you can use your file manager to navigate to the folder where you installed it, and double-click +run-wpdev.sh+, and then select ``Run in Terminal''.
+
+image::images/iwp-launcher.png["Screenshot of Instant WordPress Dev folder in a file manager",width=604.5,link="iwp-launcher.png"]
+
+Or you can run it from inside *Terminal*.
+
+[source,bash]
+----
+cd ~/Apps/instant-wordpress-dev
+./run-wpdev.sh
+----
+
+The launcher script will do the following things:
+
+1. Check for its dependencies.
+2. Download the WordPress installer if this is your first time using Instant WordPress or if there is an updated installer.
+3. Create a local data directory for MySQL Server. (You will be using your own MySQL data files and a custom TCP port; you won't be using the global MySQL instance on port 3306.)
+4. Create PHP and MySQL server processes.
+5. Dispaly the URL for Instant WordPress Dev's control panel at http://localhost:8300/ .
+
+image::images/running-iwp.png["Screenshot of run-wpdev.sh running in Terminal",width=498,link="images/running-iwp.png"]
+
+== Control Panel
+
+TIP: Don't forget, you can access the control panel at http://localhost:8300/ in your browser.
+
+If you have never run Instant WordPress Dev before, the control panel will create an empty WordPress instance called +sandbox+ for you.
+
+image::images/iwp-home.png["Screenshot of first view of Instant WordPress Dev control panel",width=768,link="images/iwp-home.png"]
+
+=== WordPress Instances Screen
+
+Use the WordPress Instances screen to create and destroy instances, and to login to them.
+
+image::images/instances.png["Screenshot of WordPress Instances screen",width=768,link="images/instances.png"]
+
+The *Create new instance* button creates a new site for you. It automatically creates a user for each of the standard roles in WordPress, so you can easily test how your site behaves with those roles.
+
+By default, when you click the *Login* button for an instance, you will go to the site's home page and you will be logged in as +admin+. You will not be prompted for a password. Use the ``Login as'' and ``go to'' buttons to change the role or target screen.
+
+The *Delete* button destroys a site. It will prompt you to ask if you're sure.
+
+WARNING: The *Delete* function will destroy any work that exists inside that site. This includes all pages and posts, as well as any themes and plugins you were working on.
+
+=== Databases Screen
+
+Use the Databases screen to peek inside your WordPress databases.
+
+image::images/databases.png["Screenshot of Databases screen",width=768,link="images/databases.png"]
+
+The +wpdev+ database is used by Instant WordPress Dev to track mail sent by WordPress. The rest of the databases belong to WordPress instances.
+
+Click on a database name to access that database using http://www.adminer.org/[Adminer] (which is included in Instant WordPress Dev).
+
+image::images/adminer.png["Screenshot of Databases screen",width=768,link="images/adminer.png"]
+
+=== Mail Screen
+
+Use the Mail screen to read and delete any mail that was sent by an action you performed in WordPress. An example of a common built-in use of mail in WordPress is when you create a new user.
+
+image::images/mail.png["Screenshot of Mail screen",width=768,link="images/mail.png"]
+
+TIP: For convenience, the *Delete All* button does not ask for confirmation. If you need to save any messages, be sure to immediately copy and paste to somewhere more permanent.
+

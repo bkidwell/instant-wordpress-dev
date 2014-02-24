@@ -1,0 +1,147 @@
+<include href="header.html" />
+<div class="container">
+
+  <h1>WordPress Instances</h1>
+
+  <check if="{{ @alert }}">
+    <div class="alert {{ @alert_class }}">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ @alert }}
+    </div>
+  </check>
+
+  <form role="form" class="form-horizontal">
+    <div class="form-group">
+      <label for="loginas-choice" class="control-label col-sm-2">
+        Login as:
+      </label>
+      <div class="btn-group col-sm-10" data-toggle="buttons">
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="loginas-choice" value="admin">
+          admin
+        </label>
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="loginas-choice" value="editor">
+          editor
+        </label>
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="loginas-choice" value="author">
+          author
+        </label>
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="loginas-choice" value="contributor">
+          contributor
+        </label>
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="loginas-choice" value="subscriber">
+          subscriber
+        </label>
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="loginas-choice" value="anonymous">
+          anonymous
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="loginto-choice" class="control-label col-sm-2">
+      ... and go to:
+      </label>
+      <div class="btn-group col-sm-10" data-toggle="buttons">
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="loginto-choice" id="loginto_home" value="home"
+          checked="checked">
+          Home
+        </label>
+        <label class="btn btn-default btn-sm">
+          <input type="radio" name="loginto-choice" id="loginto_dashboard" value="dashboard">
+          Dashboard
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <h2>Instances</h2>
+
+  <form role="form" class="form-horizontal">
+    <repeat group="{{ @instances }}" value="{{ @instance }}">
+      <div class="form-group">
+        <label for="ins-{{ @instance }}" class="control-label col-sm-3">
+          {{ @instance }}
+        </label>
+        <div class="9">
+          <a href="#" class="btn btn-primary btn-sm btn-login" data-instance="{{ @instance }}" role="button">
+            <span class="glyphicon glyphicon-log-in"></span> Login
+          </a>
+          <a href="#" class="btn btn-default btn-sm cmd-delete" data-instance="{{ @instance }}" role="button">
+            <span class="glyphicon glyphicon-remove"></span> Delete
+          </a>
+        </div>
+      </div>
+    </repeat>
+    <check if="{{ @no_data }}">
+      <div class="form-group">
+        <label for="ins-none" class="control-label col-sm-3">
+          <em>no instances found</em>
+        </label>
+        <div class="col-sm-9">
+          &nbsp;
+        </div>
+      </div>
+    </check>
+  </form>
+
+  <br />
+  <form id="create-instance" role="form" class="form-inline" method="post"
+  action="{{ @root_uri }}/instances/create">
+      <input type="hidden" name="do" value="create" />
+      <input class="form-control" name="instance" id="instance" type="text" placeholder="Instance name…" />
+      <button type="submit" class="btn btn-default" id="instance-submit">Create new instance</button>
+  </form>
+
+  <!-- Modal dialog: Delete WordPress Instance -->
+  <div id="confirmDelete" class="modal fade">
+  <form method="post" action="{{ @root_uri }}/instances">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Delete WordPress Instance</h4>
+        </div>
+        <div class="modal-body">
+          <p>The following will be deleted:</p>
+          <table class="table table-condensed">
+          <tr>
+            <th>WordPress folder</th>
+            <td>
+              {{ @site_path }}/&hellip;<br />
+              &nbsp;&nbsp; <span class="confirmDeleteName"></span>/wp-content/uploads<br />
+              &nbsp;&nbsp; <span class="confirmDeleteName"></span>/wp-content/themes<br />
+              &nbsp;&nbsp; <span class="confirmDeleteName"></span>/wp-content/plugins<br />
+              &nbsp;&nbsp; <span class="confirmDeleteName"></span> (entire folder!)
+            </td>
+          </tr><tr>
+            <th>MySQL database</th>
+            <td>wp_<span class="confirmDeleteName"></span></td>
+          </tr>
+          </table>
+          <p>Are you sure you want to delete the WordPress instance &quot;<strong><span class="confirmDeleteName"></span></strong>&quot;?</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-danger">Delete</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    <input type="hidden" name="do" value="delete" />
+    <input type="hidden" id="deleteInstanceName" name="instance" value="" />
+  </form>
+  </div><!-- /.modal -->
+
+</div>
+
+<script type="text/javascript">
+  root_uri = '{{ @root_uri }}';
+</script>
+<script src="{{ @root_uri }}/js/instances.js"></script>
+
+<include href="footer.html" />

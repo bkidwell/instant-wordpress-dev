@@ -1,0 +1,28 @@
+<include href="header.html" />
+<div class="container">
+
+  <h1>Mail</h1>
+
+  {{ @message | raw }}
+
+  <repeat group="{{ @emails }}" value="{{ @email }}">
+    <table class="table table-condensed table-bordered">
+    <tr><th>Date</th><td>{{ @email.date }}</td></tr>
+    <tr><th>To</th><td>{{ @email.to }}</td></tr>
+    <tr><th>From</th><td>{{ @email.from }}</td></tr>
+    <tr><th>Subject</th><td>{{ @email.subject }}</td></tr>
+    </table>
+    <blockquote>
+    {{ @email.body | raw }}
+    </blockquote>
+  </repeat>
+
+  <check if="{{ @have_data }}">
+    <form role="form" class="form-inline" action="{{ @root_uri }}/mail" method="post" id="form">
+      <input type="hidden" name="action" value="delete_all" />
+      <input type="submit" class="btn btn-danger" value="Delete All" />
+    </form>
+  </check>
+
+</div>
+<include href="footer.html" />
