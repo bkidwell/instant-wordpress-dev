@@ -46,7 +46,7 @@ Instant WordPress Dev was built and tested on Linux Mint (which is derived from 
 
 These instructions assume you are using a Debian-based operating system (Debian, Ubuntu, Linux Mint, etc.) If you are using another OS, the exact commands maybe different.
 
-Use your desktop's _Terminal_ application to follow this procedure.
+Use your desktop's *Terminal* application to follow this procedure.
 
 1. If you don't already have Git installed, install it with
 +
